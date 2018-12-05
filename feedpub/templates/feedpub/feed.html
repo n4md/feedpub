@@ -1,0 +1,10 @@
+<!-- is not good to have a label outside form -->
+{% if feeditem_list %}
+    <ul>
+    {% for feeditem in feeditem_list %}
+        <li><a href="/feeditem/{{ feeditem.id }}/">{{ feeditem.titleText }}</a><br />{{ feeditem.contentText }}</li><br />
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No feed items are available.</p>
+{% endif %}

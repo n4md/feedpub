@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ip_addresses()
 # Application definition
 
 INSTALLED_APPS = (
+    'feedpub', ##ADDED 12.5.18@5:15a
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,16 +83,43 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+##ORIGINAL##
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'django',
+#        'USER': 'django',
+#        'PASSWORD': 'a14eb43634a5cd6ca9a216e4b0797c26',
+#        'HOST': 'localhost',
+#        'PORT': '',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'django',
-        'PASSWORD': 'a14eb43634a5cd6ca9a216e4b0797c26',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+##ADDED 12.5.18@5:13a
+# Password validation
+# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [ ##ADDED 12.5.18@5:13a
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
 
 # Internationalization
@@ -132,4 +160,3 @@ def ip_addresses():
 
 # Discover our IP address
 ALLOWED_HOSTS = ip_addresses()
-

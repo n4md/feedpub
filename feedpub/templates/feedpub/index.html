@@ -1,0 +1,13 @@
+<!-- is not good to have a label outside form -->
+{% if latest_feed_list %}
+    <ul>
+    {% for feed in latest_feed_list %}
+        <li><a href="/feedpub/feed/{{ feed.id }}/">{{ feed.feedName }}</a></li>
+    {% endfor %}
+        <br />
+        <li><a href="/feedpub/newitem/">CREATE A NEW ITEM</a></li>
+    </ul>
+
+{% else %}
+    <p>No feeds are available.</p>
+{% endif %}
