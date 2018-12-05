@@ -12,11 +12,11 @@ app_name = 'feedpub'
 #]
 
 urlpatterns = [
-    url('', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
 #    url('', include(admin.site.urls)), ##from ORIGINAL above, REMOVED 12.5.18@8:30a
-    url('feed/<int:feed_id>/alexa/', views.alexafile, name='alexafile'),
-    url('feed/<int:feed_id>/google/', views.googlefile, name='googlefile'),
-    url('feed/<int:feed_id>/', views.feed, name='feed'),
-    url('feeditem/<int:feeditem_id>/', views.feeditem, name='feeditem'),
-    url('newitem/', views.newitem, name='newitem')
+    url(r'^feed/(\d+)/alexa/$', views.alexafile, name='alexafile'),
+    url(r'^feed/(\d+)/google/$', views.googlefile, name='googlefile'),
+    url(r'^feed/(\d+)/$', views.feed, name='feed'),
+    url(r'^feeditem/(\d+)/$', views.feeditem, name='feeditem'),
+    url(r'^newitem/$', views.newitem, name='newitem')
 ]
