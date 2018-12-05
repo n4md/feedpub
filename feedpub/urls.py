@@ -13,7 +13,7 @@ app_name = 'feedpub'
 
 urlpatterns = [
     url('', views.index, name='index'),
-    url('', include(admin.site.urls)), ##from ORIGINAL above
+#    url('', include(admin.site.urls)), ##from ORIGINAL above, REMOVED 12.5.18@8:30a
     url('feed/<int:feed_id>/alexa/', views.alexafile, name='alexafile'),
     url('feed/<int:feed_id>/google/', views.googlefile, name='googlefile'),
     url('feed/<int:feed_id>/', views.feed, name='feed'),
