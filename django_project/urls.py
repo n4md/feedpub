@@ -18,7 +18,7 @@ from django.contrib import admin
 from feedpub import views
 
 urlpatterns = [
-    url('feedpub/', include('feedpub.urls')), ##ADDED 12.5.18@5:18a
+    url(r'^feedpub/', include('feedpub.urls')), ##ADDED 12.5.18@5:18a ##ADDED regex r'^feedpub/', 12.5.18@9:52a
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
 ]
