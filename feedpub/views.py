@@ -44,10 +44,11 @@ def alexafile(request, feed_id):
         feed_dict[item[0]] = {
             "uid": item[0],
             "updateDate": item[1],
-            "titleText": datetime.datetime.strptime(item[2], '%Y-%m-%d %H:%M:%S').isiso(),
+            "titleText": datetime.datetime.strptime(item[1], '%Y-%m-%d %H:%M:%S').isiso(),
             "mainText": item[3],
             "streamUrl": item[4],
             "redirectionUrl": item[5]
+        print(item[0] + item[1] + item[2] + item[3] + item[4] + item[5])
         }
     dict_list = list(feed_dict.values())
     #print(feed_dict)
