@@ -49,7 +49,13 @@ def alexafile(request, feed_id):
             "streamUrl": item[4],
             "redirectionUrl": item[5]
         }
-        print(item[0] + item[1] + item[2] + item[3] + item[4] + item[5])
+        print(item[0])
+        print(item[1])
+        print(item[2])
+        print(item[3])
+        print(item[4])
+        print(item[5])
+
     dict_list = list(feed_dict.values())
     #print(feed_dict)
     #return JsonResponse(dict_list, safe=False)
