@@ -59,7 +59,7 @@ def alexafile(request, feed_id):
     dict_list = list(feed_dict.values())
     #print(feed_dict)
     #return JsonResponse(dict_list, safe=False)
-    return HttpResponse(json.dumps(dict_list, ensure_ascii=False, encoding="utf-8"), content_type="application/json; charset=utf-8")
+    return HttpResponse(json.dumps(dict_list, ensure_ascii=False, encoding="utf-8"), indent=4, sort_keys=True, default=str, content_type="application/json; charset=utf-8")
 
 def googlefile(request, feed_id):
     response = "You're looking at the Google file for feed id = %s" % feed_id
