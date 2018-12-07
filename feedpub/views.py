@@ -52,7 +52,7 @@ def alexafile(request, feed_id):
         print(item[0])
         print(item[1])
         print(item[2])
-        print(item[3])
+        #print(item[3])
         print(item[4])
         print(item[5])
 
