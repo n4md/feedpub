@@ -43,8 +43,8 @@ def alexafile(request, feed_id):
     for item in tuple_list:
         feed_dict[item[0]] = {
             "uid": item[0],
-            "updateDate": item[1],
-            "titleText": item[1],
+            "updateDate": item[1].isoformat(),
+            "titleText": item[2],
             "mainText": item[3],
             "streamUrl": item[4],
             "redirectionUrl": item[5]
