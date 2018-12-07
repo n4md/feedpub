@@ -32,7 +32,7 @@ def index(request):
 
 def alexafile(request, feed_id):
     feed_dict = {}
-    conn = sqlite3.connect("db.sqlite3")
+    conn = sqlite3.connect('db.sqlite3', detect_types=sqlite3.PARSE_DECLTYPES)
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
     c.execute('SELECT uid, updateDate, titleText, contentText, streamUrl, redirectionUrl FROM feedpub_feeditem WHERE feed_id = ? ORDER BY updateDate DESC LIMIT 5', (feed_id,))
@@ -43,7 +43,7 @@ def alexafile(request, feed_id):
         feed_dict[item[0]] = {
             "uid": item[0],
             "updateDate": item[1],
-            "titleText": item[2],
+            "titleText": item[2].isoformat(),
             "mainText": item[3],
             "streamUrl": item[4],
             "redirectionUrl": item[5]
