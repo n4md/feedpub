@@ -44,7 +44,7 @@ def alexafile(request, feed_id):
         feed_dict[item[0]] = {
             "uid": item[0],
             "updateDate": item[1],
-            "titleText": datetime.datetime.strptime(item[1], '%Y-%m-%d %H:%M:%S').isiso(),
+            "titleText": item[1].isiso(),
             "mainText": item[3],
             "streamUrl": item[4],
             "redirectionUrl": item[5]
